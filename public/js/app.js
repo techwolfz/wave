@@ -58,7 +58,7 @@ function connectWebSocket() {
     ws.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data);
-            if (data.id && data.lat && data.lng) {
+            if (data.id && data.lat !== undefined && data.lng !== undefined) {
                 updateOtherDeviceLocation(data);
             }
         } catch (e) {
