@@ -138,7 +138,9 @@ function startTracking() {
             },
             (error) => {
                 console.error('Geolocation error:', error.message);
-                alert(`Error getting location: ${error.message}`);
+                // Don't show an alert, just quietly fail since the main point is tracking the phone, not the PC
+                latEl.textContent = 'Denied';
+                lngEl.textContent = 'Denied';
             },
             {
                 enableHighAccuracy: true,
